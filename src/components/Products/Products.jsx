@@ -9,16 +9,15 @@ const products = [
     { id : 2, name: 'Macbook', decsritption: 'Apple macbook', price: '$10', image: 'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2019/7/pr_2019_7_17_13_43_4_952_00.jpg'}
 ]
 
-const Products = () => {
+const Products = ({products , onAddToCart}) => {
     const classes = useStyles();
-
     return (
     <main className={classes.content}>
         <div className={classes.toolbar} />
         <Grid container justify='center' spacing={4}>
             {products.map((product) => (
-                <Grid item key={product.key} xs={12} sm={6} md={4} lg={3}>
-                    <Product product={product} />
+                <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+                    <Product product={product} onAddToCart={onAddToCart} />
                 </Grid>
             ))}
         </Grid>
